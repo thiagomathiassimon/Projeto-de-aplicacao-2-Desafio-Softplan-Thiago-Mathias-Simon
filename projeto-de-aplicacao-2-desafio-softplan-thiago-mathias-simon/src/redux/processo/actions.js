@@ -14,6 +14,13 @@ export const processoEmEdicao = processo => (
     }
 )
 
+export const pesquisa = q => (
+    {
+        type: types.PESQUISA,
+        payload: q
+    }
+)
+
 export const armazenarProcessos = processos => (
     {
         type: types.ARMAZENAR_PROCESSOS,

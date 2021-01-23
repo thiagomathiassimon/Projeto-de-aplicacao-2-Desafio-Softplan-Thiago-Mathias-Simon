@@ -4,12 +4,13 @@ import TelaInicial from '../processo/TelaInicial';
 import ProcessoAPI from '../services/processos';
 import React, { useState, useEffect } from 'react';
 import TelaDeListagem from '../processo/TelaDeListagem';
-import { getProcessoEmDestaque } from '../redux/processo/selectors';
+import { getProcessoEmDestaque, getPesquisa } from '../redux/processo/selectors';
 
 
 export default function Processo() {
 
   const processoEmDestaque = useSelector(getProcessoEmDestaque);
+  const pesquisa = useSelector(getPesquisa);
 
   const [processos, setProcessos] = useState([]);
 
@@ -19,10 +20,11 @@ export default function Processo() {
   useEffect(() => {
     console.log("Passou pelo useEffect")
     carregarProcessos();
-  }, []);
+  }, [pesquisa]);
 
   const carregarProcessos = async () => {
-    const processos = await ProcessoAPI.buscarProcessos();
+    console.log('pesquisa', pesquisa)
+    const processos = await ProcessoAPI.buscarProcessos(pesquisa);
     setProcessos(processos);
     console.log(processos);
   }

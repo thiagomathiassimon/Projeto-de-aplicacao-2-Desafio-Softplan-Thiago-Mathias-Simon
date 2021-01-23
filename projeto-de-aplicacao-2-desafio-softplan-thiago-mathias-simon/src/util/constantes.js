@@ -22,7 +22,7 @@ export const processos = [
     id: 2,
     numero: 'SOFT 0002/2021',
     data: '19/01/2021',
-    assunto: 'Teste',
+    assunto: 'Fusão empresarial',
     interessados: [
       'João',
       'Maria'
