@@ -1,13 +1,17 @@
 import '../assets/css/estilo.css';
+import { useSelector } from 'react-redux';
 import TelaInicial from '../processo/TelaInicial';
 import ProcessoAPI from '../services/processos';
 import React, { useState, useEffect } from 'react';
 import TelaDeListagem from '../processo/TelaDeListagem';
+import { getProcessoEmDestaque } from '../redux/processo/selectors';
+
 
 export default function Processo() {
 
+  const processoEmDestaque = useSelector(getProcessoEmDestaque);
+
   const [processos, setProcessos] = useState([]);
-  const [processoEmEdicao, setProcessoEmEdicao] = useState();
 
   const [listar, setListar] = useState(false);
   const [open, setOpen] = useState(false);
@@ -17,25 +21,19 @@ export default function Processo() {
     carregarProcessos();
   }, []);
 
-  useEffect(() => {
-    console.log("processoEmEdicao no Update", processoEmEdicao)
-  }, [processoEmEdicao]);
-
   const carregarProcessos = async () => {
     const processos = await ProcessoAPI.buscarProcessos();
     setProcessos(processos);
     console.log(processos);
   }
 
-  const editarProcesso = (processo) => {
-    console.log(processo)
-    setProcessoEmEdicao(processo);
+  const editarProcesso = () => {
     handleClickOpen();
-    console.log('open', open)
   }
 
-  const excluirProcesso = (processo) => {
-    ProcessoAPI.excluirProcesso(processo.id).then(() => carregarProcessos());
+  const excluirProcesso = () => {
+    console.log('processoEmDestaque', processoEmDestaque)
+    ProcessoAPI.excluirProcesso(processoEmDestaque.id).then(() => carregarProcessos());
   }
 
   const salvarProcesso = (processo) => {
@@ -43,14 +41,12 @@ export default function Processo() {
       console.log("Não passou no else do método salvarProcesso()")
       ProcessoAPI.atualizarProcesso(processo).then(() => {
         carregarProcessos();
-        setProcessoEmEdicao(null);
       });
       return;
     }
     console.log("Passando no else do if do salvarProcesso()")
     ProcessoAPI.inserirProcesso(processo).then(() => {
       carregarProcessos();
-      setProcessoEmEdicao(null);
     })
   }
 
@@ -66,11 +62,11 @@ export default function Processo() {
   return (
     <>
       {listar === false &&
-        <TelaInicial processo={processoEmEdicao} handleClick={() => setListar(!listar)} salvar={salvarProcesso} filtrarDados={() => console.log('Filtro em manutenção!')}
+        <TelaInicial handleClick={() => setListar(!listar)} salvar={salvarProcesso} filtrarDados={() => console.log('Filtro em manutenção!')}
           estado={open} handleClose={handleClose} handleClickOpen={handleClickOpen} />
       }
       {listar &&
-        <TelaDeListagem processos={processos} processo={processoEmEdicao} salvar={salvarProcesso} handleEditar={editarProcesso} handleExcluir={excluirProcesso}
+        <TelaDeListagem processos={processos} salvar={salvarProcesso} handleEditar={editarProcesso} handleExcluir={excluirProcesso}
           estado={open} handleClose={handleClose} handleClickOpen={handleClickOpen} />
       }
     </>

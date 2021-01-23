@@ -1,11 +1,18 @@
-import * as yup from 'yup';
 import React from 'react';
+import * as yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import Interessados from '../components/Interessados';
+import { useSelector, useDispatch } from 'react-redux';
+import { processoEmEdicao } from '../redux/processo/actions';
+import { getProcessoEmEdicao } from '../redux/processo/selectors';
 import { Dialog, TextField, DialogActions, DialogTitle, DialogContent, Button } from '@material-ui/core';
 
 export default function FormDialog(props) {
-  const { estado, salvar, handleClose, processo } = props;
+  const { estado, salvar, handleClose, voltar } = props;
+
+  const dispatch = useDispatch();
+
+  const processo = useSelector(getProcessoEmEdicao);
 
   const adicionarInteressado = (interessado, name, values, setFieldValue) => {
     const interessados = values[name];
@@ -44,12 +51,19 @@ export default function FormDialog(props) {
         fullWidth={true}
         maxWidth="md"
         open={estado}
-        onClose={handleClose}
+        onClose={() => {
+          dispatch(processoEmEdicao(PROCESSO_INICIAL));
+          handleClose()
+        }}
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">
           <span className="title" id="dialogTitle">Cadastro de processo</span>
-          <button id="btnClose" onClick={handleClose}>X</button>
+          <button id="btnClose" onClick={() => {
+            console.log(PROCESSO_INICIAL);
+            dispatch(processoEmEdicao(PROCESSO_INICIAL));
+            handleClose();
+          }}>X</button>
         </DialogTitle>
         <DialogContent >
           <Formik
@@ -60,7 +74,9 @@ export default function FormDialog(props) {
             onSubmit={(values, actions) => {
               console.log('Ativando o onSubmit')
               salvarProcesso(values, actions)
+              dispatch(processoEmEdicao(PROCESSO_INICIAL));
               handleClose()
+              voltar()
             }}
             render={({ values, errors, touched, setFieldTouched, setFieldValue, isSubmitting, handleReset }) => (
               <Form>

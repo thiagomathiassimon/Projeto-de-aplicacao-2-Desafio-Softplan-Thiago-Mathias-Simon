@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
@@ -18,7 +18,7 @@ export default function SmallList(props) {
 
   const dispatch = useDispatch();
 
-  const { processos, processoAtual, setProcessoAtual } = props;
+  const { processos } = props;
 
   return (
     <>

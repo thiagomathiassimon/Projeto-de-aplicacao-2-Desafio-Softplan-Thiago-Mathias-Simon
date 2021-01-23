@@ -38,35 +38,10 @@ export default function TelaDeListagem(props) {
     console.log('processo', processo)
   }
 
-  const processo2 = {
-    numero: "SOFT 0001/2021",
-    assunto: "Sem assunto",
-    interessado: "Todos",
-    descricao: " É uma parte do Universo que os astrônomos sabem que existe, mas ainda não sabem exatamente o que seja. É matéria, porque se consegue medir sua existência por meio da força gravitacional que ela exerce... Leia mais em: https://super.abril.com.br/mundo-estranho/o-que-e-materia-escura-2/",
-    data: "21/01/2021",
-    interessados: [
-      { nome: "Gerente" },
-      { nome: "Advogado" },
-      { nome: "Funcionário" },
-      { nome: "Dono" },
-      { nome: "Subgerente" }
-    ]
+  const voltar = () => {
+    setTrocaLista(false);
   }
 
-  // const processos = [
-  //   {
-  //     numero: "SOFT 0001/2018",
-  //     assunto: "Sem assunto",
-  //     interessado: "Todos",
-  //     descricao: "Detalhada"
-  //   },
-  //   {
-  //     numero: "SOFT 0002/2018",
-  //     assunto: "Sem assunto",
-  //     interessado: "Todos",
-  //     descricao: "Detalhada"
-  //   }
-  // ]
   return (
     <>
       <br />
@@ -92,10 +67,10 @@ export default function TelaDeListagem(props) {
           <div id="divSmallList" >
             <SmallList processos={processos} processoAtual={processoAtual} setProcessoAtual={setProcessoAtual} />
           </div>
-          <Outline processo={processo2} editar={handleEditar} excluir={handleExcluir} />
+          <Outline editar={handleEditar} excluir={handleExcluir} voltar={voltar} />
         </>
       }
-      <Dialog processo={processo} estado={estado} handleClose={handleClose} salvar={salvar} />
+      <Dialog estado={estado} handleClose={handleClose} salvar={salvar} voltar={voltar} />
     </>
   )
 }

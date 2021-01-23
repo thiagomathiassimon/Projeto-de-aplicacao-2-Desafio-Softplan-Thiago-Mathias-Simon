@@ -7,6 +7,13 @@ export const processoEmDestaque = processo => (
     }
 )
 
+export const processoEmEdicao = processo => (
+    {
+        type: types.PROCESSO_EM_EDICAO,
+        payload: processo
+    }
+)
+
 export const armazenarProcessos = processos => (
     {
         type: types.ARMAZENAR_PROCESSOS,
