@@ -1,11 +1,14 @@
 import * as React from 'react';
 import '../assets/css/Outline.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ImagemDeX from "../assets/img/imagemX.png";
+import { processoEmEdicao } from '../redux/processo/actions';
 import { getProcessoEmDestaque } from '../redux/processo/selectors';
 
 export default function Outline(props) {
-  const { excluir, editar } = props;
+  const { excluir, editar, voltar } = props;
+
+  const dispatch = useDispatch();
 
   const processos = useSelector(getProcessoEmDestaque);
   console.log('processos', processos)
@@ -83,9 +86,16 @@ export default function Outline(props) {
       </table>
       <p>{processos.descricao}</p>
       <button className="buttonLabel" id="btnRemove" variant="outlined"
-        onClick={excluir}>REMOVER</button>
+        onClick={() => {
+          excluir()
+          voltar()
+        }}>REMOVER</button>
       <button className="buttonLabel" id="btnEdit" variant="outlined" color="primary"
-        onClick={editar}>
+        onClick={() => {
+          console.log(processos);
+          dispatch(processoEmEdicao(processos));
+          editar();
+        }}>
         EDITAR
          </button>
     </div>

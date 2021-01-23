@@ -15,7 +15,7 @@ export default function TelaInicial(props) {
       <div id="linkLabel">Você pode criar um novo processo <span className="buttonLabel" id="link" onClick={handleClickOpen} >clicando aqui
       </span>.
       </div>
-      <Dialog processo={processo} estado={estado} handleClose={handleClose} salvar={salvar} />
+      <Dialog estado={estado} handleClose={handleClose} salvar={salvar} />
     </>
   )
 

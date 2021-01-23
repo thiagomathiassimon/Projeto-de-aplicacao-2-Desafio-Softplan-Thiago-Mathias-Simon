@@ -72,6 +72,11 @@ export function criarServidor({ environment = "test" } = {}) {
         const attrs = JSON.parse(request.requestBody);
         return schema.processos.create(attrs);
       });
+
+      this.delete("/processo/:id", (schema, request) => {
+        const id = request.params.id;
+        return schema.processos.find(id).destroy();
+      });
     },
   });
   return server;

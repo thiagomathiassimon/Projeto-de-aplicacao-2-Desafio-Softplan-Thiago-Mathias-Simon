@@ -8,6 +8,9 @@ const ProcessoReducer = (state = INITIAL_STATE, action) => {
         case types.PROCESSO_EM_DESTAQUE:
             return { ...state, processo: action.payload };
 
+        case types.PROCESSO_EM_EDICAO:
+            return { ...state, processoEmEdicao: action.payload };
+
         case types.ARMAZENAR_PROCESSOS:
             return { ...state, processos: action.payload };
 
