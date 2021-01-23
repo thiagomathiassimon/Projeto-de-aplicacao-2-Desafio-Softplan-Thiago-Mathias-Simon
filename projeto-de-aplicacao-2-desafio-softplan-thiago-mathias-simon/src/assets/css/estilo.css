@@ -1,0 +1,225 @@
+body {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.buttonLabel {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+#pageTitle {
+  color: #005b95;
+  text-align: center;
+  margin-top: 15%;
+}
+
+#divPesquisa {
+  margin-top: 1.5%;
+  margin-left: 36.5%;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+
+#link {
+  cursor: pointer;
+  color: #005b95;
+  text-decoration: underline;
+}
+
+#linkLabel {
+  margin-top: 2%;
+  color: #757575;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  padding-top: 3%;
+  margin-left: 38.5%;
+}
+
+#secondTitle {
+  float: left;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 0%;
+}
+
+#secondDiv {
+  float: left;
+}
+
+#btn {
+  cursor: pointer;
+  background-color: white;
+  margin-top: 0%;
+  margin-left: 1%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-top: 0.8%;
+  padding-bottom: 0.8%;
+}
+
+#btn:hover {
+  background-color: aliceblue;
+}
+
+.lista {
+  border-style: hidden;
+  text-align: justify;
+  margin-left: 10.7%;
+  background-color: white;
+  cursor: pointer;
+}
+
+.noneImg {
+  margin-right: 1%;
+  float: left;
+}
+
+table {
+  color: #757575;
+  width: 100%;
+}
+
+/* #btnAdd {
+  cursor: pointer;
+  background-color: #9E9E9E;
+  color: white;
+  margin: 0%;
+  margin-left: 2.5%;
+  margin-top: 1.5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-style: none;
+} */
+
+#form-dialog-title {
+  padding: 0%;
+  padding-left: 1%;
+}
+
+#dialogTitle {
+  color: #212121;
+  float: left;
+  width: 97.5%;
+  margin: 0%;
+}
+
+#btnClose {
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  background-color: white;
+  border-color: white;
+  border-style: none;
+  padding: 0%;
+}
+
+#btnSalvar {
+  padding-left: 2%;
+  padding-right: 2%;
+  background-color: #005b95;
+  color: #212121;
+}
+
+#divLoading {
+  margin-top: 19%;
+  margin-left: 27%;
+}
+
+#divItem {
+  float: left;
+  margin: 0%;
+  margin-left: 3.7%;
+  height: 600px;
+}
+
+#divSmallList {
+  float: left;
+  margin-left: 7.8%;
+}
+
+#firstTableItem {
+  white-space: nowrap;
+  width: 450px;
+}
+
+#nextTableItem {
+  text-align: justify;
+  width: 400px;
+  white-space: nowrap;
+}
+
+#btnRemove {
+  cursor: pointer;
+  background-color: white;
+  color: #757575;
+  border-color: #757575;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-left: 42%;
+  margin-top: 13%;
+  width: 150px;
+
+}
+
+#btnEdit {
+  margin-left: 3%;
+  cursor: pointer;
+  background-color: white;
+  color: #005b95;
+  border-color: #005b95;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-top: 13%;
+  width: 150px;
+}
+
+#btnRemove:hover,
+#btnEdit:hover {
+  background-color: aliceblue;
+}
+
+#btnSalvar {
+  background-color: #005b95;
+  color: white;
+  cursor: pointer;
+  margin-left: 87%;
+}
+
+#btnSalvar:hover {
+  background-color: #005b85;
+}
+
+#btnAdd {
+  cursor: pointer;
+  color: white;
+  margin-left: 2%;
+  margin-top: 1.5%;
+}
+
+#btnAdd:hover {
+  background-color: #757575;
+}
