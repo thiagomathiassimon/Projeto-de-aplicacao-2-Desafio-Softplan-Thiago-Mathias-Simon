@@ -4,6 +4,10 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
+import { useSelector, useDispatch } from 'react-redux';
+import { pesquisa } from '../redux/processo/actions';
+import { getPesquisa } from '../redux/processo/selectors';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,8 +27,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchBar(props) {
   const classes = useStyles();
+  const search = useSelector(getPesquisa);
+  const dispatch = useDispatch();
 
   const [q, setQ] = useState();
+  const [serachTerm, setSearchTerm] = useState(search);
 
   const { handleClick, filtrarDados } = props;
 
@@ -33,16 +40,21 @@ export default function SearchBar(props) {
       <InputBase
         className={classes.input}
         placeholder="Pesquise por uma informação do processo"
-        onChange={e => setQ(e.target.value)}
+        value={serachTerm}
+        onChange={e => {
+          setSearchTerm(e.target.value)
+          console.log(serachTerm)
+        }}
       />
-      <IconButton type="submit" className={classes.iconButton} aria-label="search"
+      <IconButton type="button" className={classes.iconButton} aria-label="search"
         onClick={() => {
+          console.log(serachTerm)
+          dispatch(pesquisa(serachTerm))
           filtrarDados(q);
           handleClick();
           return (console.log(q))
         }
         }
-
       >
         <SearchIcon />
       </IconButton>

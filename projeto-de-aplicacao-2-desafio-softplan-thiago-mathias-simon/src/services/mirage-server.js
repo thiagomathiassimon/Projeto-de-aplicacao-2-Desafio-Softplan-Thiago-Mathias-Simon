@@ -48,7 +48,8 @@ export function criarServidor({ environment = "test" } = {}) {
         const q = request.queryParams.q;
         console.log("q", q)
         if (q) {
-          return schema.processo.where(processo => processo.numero.includes(q) || processo.assunto.includes(q) || processo.interessado.includes(q) || processo.descricao.includes(q)).models
+          console.log('requisição de busca com parâmetros')
+          return schema.processos.where(processo => processo.numero.includes(q) || processo.assunto.includes(q) || processo.interessados.includes(q) || processo.descricao.includes(q)).models
         }
         console.log('schema', schema)
         return schema.processos.all().models;
