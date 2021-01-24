@@ -1,6 +1,6 @@
 import * as yup from 'yup';
-import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
+import React, { useState, useEffect } from 'react';
 import Interessados from '../components/Interessados';
 import { useSelector, useDispatch } from 'react-redux';
 import { processoEmEdicao } from '../redux/processo/actions';
@@ -11,9 +11,15 @@ export default function FormDialog(props) {
 
   const { estado, salvar, handleClose, voltar } = props;
 
+  const processo = useSelector(getProcessoEmEdicao);
+
   const [interessados, setInteressados] = useState([]);
 
-  const processo = useSelector(getProcessoEmEdicao);
+  const listaInteressados = () => {
+    if (processo) {
+      processo.interessados.map(interessado => interessados.push(interessado))
+    }
+  }
 
   const dispatch = useDispatch();
 
@@ -127,6 +133,7 @@ export default function FormDialog(props) {
               </Form>
             )}
           />
+          {listaInteressados()}
         </DialogContent>
         <DialogActions>
         </DialogActions>
