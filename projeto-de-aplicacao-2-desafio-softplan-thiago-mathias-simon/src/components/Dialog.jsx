@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import Interessados from '../components/Interessados';
@@ -10,16 +10,25 @@ import { Dialog, TextField, DialogActions, DialogTitle, DialogContent, Button } 
 export default function FormDialog(props) {
   const { estado, salvar, handleClose, voltar } = props;
 
+  const [interessados, setInteressados] = useState([]);
+
+
   const dispatch = useDispatch();
 
   const processo = useSelector(getProcessoEmEdicao);
 
   const adicionarInteressado = (interessado, name, values, setFieldValue) => {
-    const interessados = values[name];
-    console.log(interessados)
+    // const interessados = values[name];
+    // console.log(interessados)
+    console.log('interessado', interessado)
     interessados.push(interessado);
-    console.log(interessados)
+    // setInteressados([...interessados, interessado])
+    console.log('lista interessados', interessados)
     setFieldValue(name, interessados);
+    // console.log('interessado', interessado, 'values', values)
+    // console.log('interessados', interessados)
+
+
   }
 
   const PROCESSO_INICIAL = {
@@ -35,8 +44,9 @@ export default function FormDialog(props) {
   });
 
   const salvarProcesso = (values, actions) => {
-    console.log("values", values);
     salvar(values);
+    console.log("values", values);
+
     console.log(actions)
     actions.resetForm();
   }
@@ -98,7 +108,8 @@ export default function FormDialog(props) {
                   fullWidth
                   size="small"
                   name="interessados"
-                  interessados={values.interessados}
+                  interessados={interessados}
+                  setInteressados={setInteressados}
                   adicionarInteressado={interessado => adicionarInteressado(interessado, 'interessados', values, setFieldValue)}
                   onChange={e => handleChange('interessados', e.target.value, setFieldValue, setFieldTouched)}
                   onFocus={() => setFieldTouched('interessados')}

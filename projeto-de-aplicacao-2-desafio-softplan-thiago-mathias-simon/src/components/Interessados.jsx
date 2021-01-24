@@ -1,15 +1,16 @@
 import { TextField, InputLabel, FormHelperText, Button } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Interessados = props => {
-  const { interessados, adicionarInteressado } = props;
+  const { interessados, adicionarInteressado, setInteressados } = props;
   const [interessado, setInteressado] = useState('');
 
+  useEffect(() => {
+    setInteressados([]);
+  }, []);
+
   const handleAdicionarInteressado = () => {
-    const dadosInteressado = [
-      interessado
-    ]
-    adicionarInteressado(dadosInteressado);
+    adicionarInteressado(interessado);
     resetarDadosInteressado();
   }
 
@@ -22,8 +23,8 @@ const Interessados = props => {
       <FormHelperText>Interessados</FormHelperText>
       <div id="listaInteressados">
         {interessados && interessados.length > 0 &&
-          interessados.map(interessado =>
-            <InputLabel key={interessado}>{`${interessado}`}</InputLabel>
+          interessados.map((interessado, indice) =>
+            <InputLabel key={`${indice}/${interessado}`}>{`${interessado}`}</InputLabel>
           )}
       </div>
       <br />
