@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import * as yup from 'yup';
+import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import Interessados from '../components/Interessados';
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,27 +8,18 @@ import { getProcessoEmEdicao } from '../redux/processo/selectors';
 import { Dialog, TextField, DialogActions, DialogTitle, DialogContent, Button } from '@material-ui/core';
 
 export default function FormDialog(props) {
+
   const { estado, salvar, handleClose, voltar } = props;
 
   const [interessados, setInteressados] = useState([]);
 
+  const processo = useSelector(getProcessoEmEdicao);
 
   const dispatch = useDispatch();
 
-  const processo = useSelector(getProcessoEmEdicao);
-
   const adicionarInteressado = (interessado, name, values, setFieldValue) => {
-    // const interessados = values[name];
-    // console.log(interessados)
-    console.log('interessado', interessado)
     interessados.push(interessado);
-    // setInteressados([...interessados, interessado])
-    console.log('lista interessados', interessados)
     setFieldValue(name, interessados);
-    // console.log('interessado', interessado, 'values', values)
-    // console.log('interessados', interessados)
-
-
   }
 
   const PROCESSO_INICIAL = {
@@ -90,7 +81,6 @@ export default function FormDialog(props) {
             }}
             render={({ values, errors, touched, setFieldTouched, setFieldValue, isSubmitting, handleReset }) => (
               <Form>
-                {console.log(values)}
                 <Field
                   component={TextField}
                   size="small"
@@ -141,7 +131,6 @@ export default function FormDialog(props) {
         <DialogActions>
         </DialogActions>
       </Dialog>
-
     </div >
   );
 }

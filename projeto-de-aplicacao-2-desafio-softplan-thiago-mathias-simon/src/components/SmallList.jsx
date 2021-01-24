@@ -14,11 +14,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SmallList(props) {
+
+  const { processos } = props;
+
   const classes = useStyles();
 
   const dispatch = useDispatch();
-
-  const { processos } = props;
 
   return (
     <>
@@ -29,7 +30,7 @@ export default function SmallList(props) {
               onClick={() => {
                 console.log(processo)
                 dispatch(processoEmDestaque(processo))
-              }} >
+              }}>
               <Paper component="form" className={classes.root}>
                 <table>
                   <thead />
@@ -42,7 +43,7 @@ export default function SmallList(props) {
                             <th className="listItem">Assunto</th>
                           </tr>
                         </thead>
-                        <tbody >
+                        <tbody>
                           <tr>
                             <td className="listItem">{processo.numero}</td>
                             <td className="listItem">{processo.assunto}</td>
@@ -66,7 +67,8 @@ export default function SmallList(props) {
                                 </tr>
                               )
                             }
-                            )}</td>
+                            )}
+                            </td>
                           </tr>
                         </tbody>
                       </table>
@@ -80,10 +82,7 @@ export default function SmallList(props) {
           </>
         )
       }
-      )
-      }
+      )}
     </>
   )
 }
-
-

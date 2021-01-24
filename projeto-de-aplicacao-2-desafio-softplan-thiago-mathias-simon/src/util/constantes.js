@@ -1,6 +1,6 @@
 export const PROCESSO_INICIAL = {
   numero: '',
-  data: '',
+  entrada: '',
   assunto: '',
   interessados: [],
   descricao: ''
@@ -10,7 +10,7 @@ export const processos = [
   {
     id: 1,
     numero: 'SOFT 0001/2021',
-    data: '19/01/2021',
+    entrada: '19/01/2021',
     assunto: 'Teste',
     interessados: [
       'João',
@@ -21,7 +21,7 @@ export const processos = [
   {
     id: 2,
     numero: 'SOFT 0002/2021',
-    data: '19/01/2021',
+    entrada: '19/01/2021',
     assunto: 'Fusão empresarial',
     interessados: [
       'João',
@@ -32,7 +32,7 @@ export const processos = [
   {
     id: 3,
     numero: 'SOFT 0003/2021',
-    data: '19/01/2021',
+    entrada: '19/01/2021',
     assunto: 'Teste',
     interessados: [
       'João',
@@ -43,7 +43,7 @@ export const processos = [
   {
     id: 4,
     numero: 'SOFT 0004/2021',
-    data: '19/01/2021',
+    entrada: '19/01/2021',
     assunto: 'Teste',
     interessados: [
       'João',

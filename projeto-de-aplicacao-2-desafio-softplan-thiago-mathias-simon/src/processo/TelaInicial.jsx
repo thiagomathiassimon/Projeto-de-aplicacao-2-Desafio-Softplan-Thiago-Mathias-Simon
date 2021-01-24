@@ -1,10 +1,10 @@
 import React from 'react';
-import SearchBar from '../components/SearchBar'
 import Dialog from '../components/Dialog'
+import SearchBar from '../components/SearchBar'
 
 export default function TelaInicial(props) {
 
-  const { handleClick, processo, salvar, estado, handleClose, handleClickOpen } = props;
+  const { handleClick, salvar, estado, handleClose, handleClickOpen } = props;
 
   return (
     <>
@@ -18,5 +18,4 @@ export default function TelaInicial(props) {
       <Dialog estado={estado} handleClose={handleClose} salvar={salvar} />
     </>
   )
-
 }

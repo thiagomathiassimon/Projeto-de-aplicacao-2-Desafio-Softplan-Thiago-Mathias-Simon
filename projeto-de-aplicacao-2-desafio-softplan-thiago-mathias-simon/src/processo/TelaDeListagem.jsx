@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux';
 import Botao from '../components/Button';
 import Dialog from '../components/Dialog';
 import Outline from '../components/Outline';
@@ -6,36 +7,26 @@ import SmallList from '../components/SmallList';
 import React, { useState, useEffect } from 'react';
 import SearchBar from '../components/SearchBar';
 import SimpleList from '../components/SimpleList';
-import { useSelector, useDispatch } from 'react-redux';
-import { buscarProcessos, excluirProcessso } from '../redux/processo/actions';
+import { buscarProcessos } from '../redux/processo/actions';
 
 export default function TelaDeListagem(props) {
-  const { processos, processo, salvar, filtrarDados, handleEditar, handleExcluir, estado, handleClose, handleClickOpen } = props;
 
-  let process = window.localStorage.getItem('processoAtual');
-  console.log('process', process)
-  // const processos = useSelector(getProcessos);
-  const dispatch = useDispatch();
+  const { processos, salvar, handleEditar, handleExcluir, estado, handleClose, handleClickOpen } = props;
+
+  const [processoAtual, setProcessoAtual] = useState('');
 
   const [trocaLista, setTrocaLista] = useState(false);
+
   const [carregada, setCarregada] = useState(false);
-  const [processoAtual, setProcessoAtual] = useState('');
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(buscarProcessos());
   }, [dispatch]);
 
-  const handleExcluirProcesso = processo => {
-    dispatch(excluirProcessso(processo));
-  }
-
   const filtrar = q => {
     dispatch(buscarProcessos(q));
-  }
-
-  const handleClick = processo => {
-    console.log('ativando o handleClick')
-    console.log('processo', processo)
   }
 
   const voltar = () => {
@@ -58,10 +49,9 @@ export default function TelaDeListagem(props) {
         <Loading />
       }
       {!carregada && setTimeout(() => { setCarregada(true) }, 2000)}
-      {!trocaLista && carregada && <SimpleList processos={processos} handleClick={() => {
-        console.log(this)
-        setTrocaLista(!trocaLista)
-      }} />}
+      {!trocaLista && carregada &&
+        <SimpleList processos={processos} handleClick={() => { setTrocaLista(!trocaLista) }} />
+      }
       {trocaLista &&
         <>
           <div id="divSmallList" >

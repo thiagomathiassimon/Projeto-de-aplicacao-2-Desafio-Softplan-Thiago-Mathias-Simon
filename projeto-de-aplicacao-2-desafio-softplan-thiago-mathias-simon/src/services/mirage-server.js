@@ -62,7 +62,7 @@ export function criarServidor({ environment = "test" } = {}) {
 
       this.post("/processo", (schema, request) => {
         const attrs = JSON.parse(request.requestBody);
-        attrs.data = gerarData();
+        attrs.entrada = gerarData();
         attrs.numero = gerarNumero();
         attrs.id = contador;
         console.log('attrs', attrs)

@@ -6,15 +6,16 @@ import React, { useState, useEffect } from 'react';
 import TelaDeListagem from '../processo/TelaDeListagem';
 import { getProcessoEmDestaque, getPesquisa } from '../redux/processo/selectors';
 
-
 export default function Processo() {
 
   const processoEmDestaque = useSelector(getProcessoEmDestaque);
+
   const pesquisa = useSelector(getPesquisa);
 
   const [processos, setProcessos] = useState([]);
 
   const [listar, setListar] = useState(false);
+
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -56,7 +57,6 @@ export default function Processo() {
     setOpen(true);
   };
 
-
   const handleClose = () => {
     setOpen(false);
   };
@@ -64,8 +64,8 @@ export default function Processo() {
   return (
     <>
       {listar === false &&
-        <TelaInicial handleClick={() => setListar(!listar)} salvar={salvarProcesso} filtrarDados={() => console.log('Filtro em manutenção!')}
-          estado={open} handleClose={handleClose} handleClickOpen={handleClickOpen} />
+        <TelaInicial handleClick={() => setListar(!listar)} salvar={salvarProcesso} estado={open} handleClose={handleClose}
+          handleClickOpen={handleClickOpen} />
       }
       {listar &&
         <TelaDeListagem processos={processos} salvar={salvarProcesso} handleEditar={editarProcesso} handleExcluir={excluirProcesso}
