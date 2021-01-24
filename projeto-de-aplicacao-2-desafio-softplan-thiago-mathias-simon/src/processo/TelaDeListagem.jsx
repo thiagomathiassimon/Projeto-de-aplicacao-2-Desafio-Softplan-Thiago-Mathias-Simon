@@ -48,7 +48,7 @@ export default function TelaDeListagem(props) {
       <br />
       <h2 className="title" id="secondTitle">Busca de<br />processos</h2>
       <div id="secondDiv">
-        <SearchBar filtrarDados={filtrar} handleClick={() => window.alert("Oi")} />
+        <SearchBar filtrarDados={filtrar} handleClick={voltar} />
       </div>
       <Botao handleClick={handleClickOpen} />
       <br />

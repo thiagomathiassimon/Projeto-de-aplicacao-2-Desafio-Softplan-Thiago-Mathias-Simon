@@ -1,5 +1,4 @@
 import * as React from 'react';
-import '../assets/css/Outline.css';
 import { useSelector, useDispatch } from 'react-redux';
 import ImagemDeX from "../assets/img/imagemX.png";
 import { processoEmEdicao } from '../redux/processo/actions';
@@ -15,7 +14,7 @@ export default function Outline(props) {
 
   return (
     <div className="outline">
-      <img className="noneImg" src={ImagemDeX} alt="Imagem vazia" />
+      <img className="noneImg" id='expandImage' src={ImagemDeX} alt="Imagem vazia" />
       <table className="tableItem" id="firstTableItem">
         <thead />
         <tbody>
@@ -24,13 +23,13 @@ export default function Outline(props) {
               <thead>
                 <tr>
                   <th>Processo</th>
-                  <th>Data</th>
+                  <th >Data</th>
                 </tr>
               </thead>
               <tbody >
                 <tr>
-                  <td className="headline">{processos.numero}</td>
-                  <td className="headline" >{processos.data}</td>
+                  <td className="headline" id='processoNumero'>{processos.numero}</td>
+                  <td className="headline" id='processoData'>{processos.data}</td>
                 </tr>
               </tbody>
             </table>
@@ -44,7 +43,7 @@ export default function Outline(props) {
               </thead>
               <tbody>
                 <tr>
-                  <td className="headline" >{processos.assunto}</td>
+                  <td className="headline" id='processoAssunto'><textarea id="assuntoTextArea" className='headline'>{processos.assunto}</textarea></td>
                 </tr>
               </tbody>
             </table>
@@ -60,16 +59,22 @@ export default function Outline(props) {
           </tr>
         </thead>
         <tbody>
-          {
-            processos.interessados.map(interessado => {
-              return (
-                <tr>
-                  <td>{interessado}</td>
-                </tr>
+          <div id='divInteressados'>
+
+            {
+              processos.interessados.map(interessado => {
+                return (
+                  <tr>
+                    <td id='processoInteressados'>
+                      {interessado}
+                    </td>
+                  </tr>
+                )
+              }
               )
             }
-            )
-          }
+          </div>
+
         </tbody>
       </table>
       <br />

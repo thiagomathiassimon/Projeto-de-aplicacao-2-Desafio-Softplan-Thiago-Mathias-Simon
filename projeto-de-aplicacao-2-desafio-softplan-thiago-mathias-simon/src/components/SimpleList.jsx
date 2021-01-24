@@ -40,26 +40,26 @@ export default function SimpleList(props) {
                 <table >
                   <thead>
                     <tr>
-                      <th>Número</th>
-                      <th>Assunto</th>
-                      <th>Interessados</th>
-                      <th>Descrição</th>
+                      <th className="listItem">Número</th>
+                      <th className="listItem">Assunto</th>
+                      <th className="listItem">Interessados</th>
+                      <th className="listItem">Descrição</th>
                     </tr>
                   </thead>
                   <br />
                   <tbody >
                     <tr>
-                      <td>{processo.numero}</td>
-                      <td>{processo.assunto}</td>
-                      <td>{processo.interessados.map(interessado => {
+                      <td className="listItem">{processo.numero}</td>
+                      <td className="listItem">{processo.assunto}</td>
+                      <td className="listItem">{processo.interessados.map(interessado => {
                         return (
                           <tr>
-                            <td>{interessado}</td>
+                            <td className="listItem">{interessado}</td>
                           </tr>
                         )
                       }
                       )}</td>
-                      <td>{processo.descricao}</td>
+                      <td className="listItem">{processo.descricao}</td>
                     </tr>
                   </tbody>
                 </table>
