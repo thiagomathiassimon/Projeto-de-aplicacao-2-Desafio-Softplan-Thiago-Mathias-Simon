@@ -92,8 +92,13 @@ export default function Outline(props) {
       <p>{processos.descricao}</p>
       <button className="buttonLabel" id="btnRemove" variant="outlined"
         onClick={() => {
-          excluir()
-          voltar()
+          const confirmar = window.confirm("Esse processo será excluido. Deseja continuar?")
+          if (confirmar) {
+            excluir()
+            voltar()
+          } else {
+            window.alert("O processo será mantido!")
+          }
         }}>REMOVER</button>
       <button className="buttonLabel" id="btnEdit" variant="outlined" color="primary"
         onClick={() => {
