@@ -186,10 +186,17 @@ table {
   color: #212121;
 }
 
+
+#loading {
+  height: 100vmax;
+  background-color: white;
+}
+
 #divLoading {
   margin-top: 19%;
   margin-left: 27%;
 }
+
 
 #divItem {
   float: left;

@@ -32,10 +32,6 @@ const Interessados = props => {
           interessados.map((interessado, indice) =>
             <InputLabel key={`${indice}/${interessado}`}>{`${interessado}`}</InputLabel>
           )}
-        {/* {processoEmEdicao &&
-          processoEmEdicao.interessados.map((interessado, indice) =>
-            <InputLabel key={`${indice}/${interessado}`}>{`${interessado}`}</InputLabel>
-          )} */}
       </div>
       <br />
       <TextField
