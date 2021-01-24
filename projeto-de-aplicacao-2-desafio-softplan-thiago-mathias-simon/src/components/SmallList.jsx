@@ -38,14 +38,14 @@ export default function SmallList(props) {
                       <table >
                         <thead>
                           <tr>
-                            <th>Número</th>
-                            <th>Assunto</th>
+                            <th className="listItem">Número</th>
+                            <th className="listItem">Assunto</th>
                           </tr>
                         </thead>
                         <tbody >
                           <tr>
-                            <td>{processo.numero}</td>
-                            <td>{processo.assunto}</td>
+                            <td className="listItem">{processo.numero}</td>
+                            <td className="listItem">{processo.assunto}</td>
                           </tr>
                         </tbody>
                       </table>
@@ -54,15 +54,15 @@ export default function SmallList(props) {
                       <table>
                         <thead>
                           <tr>
-                            <th>Interessados</th>
+                            <th className="listItem">Interessados</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td>{processo.interessados.map(interessado => {
+                            <td className="listItem">{processo.interessados.map(interessado => {
                               return (
                                 <tr>
-                                  <td>{interessado}</td>
+                                  <td className="listItem">{interessado}</td>
                                 </tr>
                               )
                             }

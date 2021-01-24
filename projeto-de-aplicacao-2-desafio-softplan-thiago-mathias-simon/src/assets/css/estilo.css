@@ -86,9 +86,39 @@ body {
 .lista {
   border-style: hidden;
   text-align: justify;
-  margin-left: 10.7%;
+  margin-left: 11.3%;
   background-color: white;
   cursor: pointer;
+}
+
+.listItem {
+  width: 25%;
+  max-width: 227px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#processoAssunto {
+  word-wrap: break-word;
+}
+
+#assuntoTextArea {
+  width: 448.3px;
+  resize: none;
+  border: none;
+  color: #757575;
+}
+
+#divInteressados {
+  width: 100%;
+  column-count: 2;
+  -webkit-column-count: 2;
+  column-width: 140px;
+  -webkit-column-width: 140px;
+  column-gap: 100px;
+  -webkit-column-gap: 100px;
+  text-align: justify;
 }
 
 .noneImg {
@@ -96,24 +126,36 @@ body {
   float: left;
 }
 
+#expandImage {
+  height: 120px;
+}
+
 table {
   color: #757575;
   width: 100%;
 }
 
-/* #btnAdd {
-  cursor: pointer;
-  background-color: #9E9E9E;
-  color: white;
-  margin: 0%;
-  margin-left: 2.5%;
-  margin-top: 1.5%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-style: none;
-} */
+.outline {
+  float: left;
+  margin-left: 4%;
+  font-size: 16px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 75px;
+  display: inline-block;
+  background: #fff;
+  border: .009px solid #f2f2f2;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+  width: 600px;
+  height: 585px;
+  overflow: scroll;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 20px;
+  line-height: 19pt;
+  text-align: justify;
+  word-break: break-all;
+}
 
 #form-dialog-title {
   padding: 0%;
@@ -162,8 +204,7 @@ table {
 }
 
 #firstTableItem {
-  white-space: nowrap;
-  width: 450px;
+  width: 300px;
 }
 
 #nextTableItem {
@@ -182,7 +223,6 @@ table {
   margin-left: 42%;
   margin-top: 13%;
   width: 150px;
-
 }
 
 #btnEdit {
