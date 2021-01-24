@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 import { Formik, Form, Field } from 'formik';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Interessados from '../components/Interessados';
 import { useSelector, useDispatch } from 'react-redux';
 import { processoEmEdicao } from '../redux/processo/actions';
