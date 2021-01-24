@@ -33,7 +33,8 @@ const Interessados = props => {
         value={interessado}
         onChange={e => setInteressado(e.target.value)}
         size="small" />
-      <Button id="btnAdd" type='button' className="buttonLabel" variant="contained" color="default" onClick={() => { handleAdicionarInteressado() }}>ADICIONAR</Button>
+      <Button id="btnAdd" type='button' className="buttonLabel" variant="contained" color="default"
+        onClick={() => { handleAdicionarInteressado() }}>ADICIONAR</Button>
     </>
   )
 }

@@ -5,12 +5,12 @@ import { processoEmEdicao } from '../redux/processo/actions';
 import { getProcessoEmDestaque } from '../redux/processo/selectors';
 
 export default function Outline(props) {
+
   const { excluir, editar, voltar } = props;
 
-  const dispatch = useDispatch();
-
   const processos = useSelector(getProcessoEmDestaque);
-  console.log('processos', processos)
+
+  const dispatch = useDispatch();
 
   return (
     <div className="outline">
@@ -29,7 +29,7 @@ export default function Outline(props) {
               <tbody >
                 <tr>
                   <td className="headline" id='processoNumero'>{processos.numero}</td>
-                  <td className="headline" id='processoData'>{processos.data}</td>
+                  <td className="headline" id='processoData'>{processos.entrada}</td>
                 </tr>
               </tbody>
             </table>
@@ -60,21 +60,16 @@ export default function Outline(props) {
         </thead>
         <tbody>
           <div id='divInteressados'>
-
-            {
-              processos.interessados.map(interessado => {
-                return (
-                  <tr>
-                    <td id='processoInteressados'>
-                      {interessado}
-                    </td>
-                  </tr>
-                )
-              }
+            {processos.interessados.map(interessado => {
+              return (
+                <tr>
+                  <td id='processoInteressados'>
+                    {interessado}
+                  </td>
+                </tr>
               )
-            }
+            })}
           </div>
-
         </tbody>
       </table>
       <br />
@@ -83,7 +78,7 @@ export default function Outline(props) {
           <tr>
             <th>
               Descrcição
-                </th>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -105,9 +100,7 @@ export default function Outline(props) {
           console.log(processos);
           dispatch(processoEmEdicao(processos));
           editar();
-        }}>
-        EDITAR
-         </button>
+        }}>EDITAR</button>
     </div>
   );
 };

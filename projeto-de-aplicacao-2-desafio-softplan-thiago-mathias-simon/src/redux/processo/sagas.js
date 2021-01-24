@@ -1,6 +1,6 @@
-import { call, put, takeEvery, all } from 'redux-saga/effects';
 import * as types from './types';
 import ProcessoAPI from '../../services/processos';
+import { call, put, takeEvery, all } from 'redux-saga/effects';
 
 function* buscarProcessos(action) {
     const processo = yield call(ProcessoAPI.buscarProcessos, action.payload);
@@ -24,7 +24,6 @@ function* insertProcesso(action) {
 function* atualizarProcesso(action) {
     yield call(ProcessoAPI.atualizarProcesso, action.payload);
 }
-
 
 function* watchBuscarProcessos() {
     yield takeEvery(types.BUSCAR_PROCESSOS, buscarProcessos);
