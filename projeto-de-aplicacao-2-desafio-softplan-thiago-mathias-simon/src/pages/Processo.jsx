@@ -1,4 +1,5 @@
 import '../assets/css/estilo.css';
+import '../assets/css/responsividade.css';
 import { useSelector } from 'react-redux';
 import TelaInicial from '../processo/TelaInicial';
 import ProcessoAPI from '../services/processos';

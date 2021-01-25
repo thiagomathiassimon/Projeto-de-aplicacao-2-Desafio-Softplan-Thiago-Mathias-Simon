@@ -22,8 +22,8 @@ export default function Outline(props) {
             <table className="tableItem" id="nextTableItem">
               <thead>
                 <tr>
-                  <th>Processo</th>
-                  <th >Data</th>
+                  <th className='thSmall' >Processo</th>
+                  <th className='thSmall'>Data</th>
                 </tr>
               </thead>
               <tbody >
@@ -38,7 +38,7 @@ export default function Outline(props) {
             <table className="tableItem" id="nextTableItem">
               <thead>
                 <tr>
-                  <th>Assunto</th>
+                  <th className='thSmall'>Assunto</th>
                 </tr>
               </thead>
               <tbody>
@@ -53,7 +53,7 @@ export default function Outline(props) {
       <table className="tableItem" id="nextTableItem">
         <thead>
           <tr>
-            <th>
+            <th className='thSmall'>
               Interessados
                 </th>
           </tr>
@@ -63,7 +63,7 @@ export default function Outline(props) {
             {processos.interessados.map(interessado => {
               return (
                 <tr>
-                  <td id='processoInteressados'>
+                  <td id='processoInteressados' className='headline'>
                     {interessado}
                   </td>
                 </tr>
@@ -76,7 +76,7 @@ export default function Outline(props) {
       <table className="tableItem" id="nextTableItem">
         <thead>
           <tr>
-            <th>
+            <th className='thSmall'>
               Descrcição
             </th>
           </tr>
@@ -84,7 +84,7 @@ export default function Outline(props) {
         <tbody>
         </tbody>
       </table>
-      <p>{processos.descricao}</p>
+      <p className='headline'>{processos.descricao}</p>
       <button className="buttonLabel" id="btnRemove" variant="outlined"
         onClick={() => {
           const confirmar = window.confirm("Esse processo será excluido. Deseja continuar?")
