@@ -55,6 +55,7 @@ export default function FormDialog(props) {
   return (
     <div id="background" >
       <Dialog
+        id='dialog'
         fullWidth={true}
         maxWidth="md"
         open={estado}

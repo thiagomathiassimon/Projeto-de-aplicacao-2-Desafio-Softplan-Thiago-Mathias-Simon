@@ -31,7 +31,7 @@ export default function SmallList(props) {
                 console.log(processo)
                 dispatch(processoEmDestaque(processo))
               }}>
-              <Paper component="form" className={classes.root}>
+              <Paper id='smallList' component="form" className={classes.root}>
                 <table>
                   <thead />
                   <tbody>

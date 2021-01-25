@@ -36,7 +36,7 @@ export default function SearchBar(props) {
   const { handleClick, filtrarDados } = props;
 
   return (
-    <Paper className={classes.root}>
+    <Paper className={classes.root} id='searchBar'>
       <InputBase
         className={classes.input}
         placeholder="Pesquise por uma informação do processo"

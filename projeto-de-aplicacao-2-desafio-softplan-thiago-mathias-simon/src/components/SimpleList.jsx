@@ -35,7 +35,7 @@ export default function SimpleList(props) {
                 dispatch(processoEmDestaque(processo));
                 handleClick();
               }}>
-              <Paper component="form" className={classes.root}>
+              <Paper id='list' component="form" className={classes.root}>
                 <img className="noneImg" src={ImagemDeX} alt="Imagem vazia" />
                 <table >
                   <thead>
